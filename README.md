@@ -5,7 +5,7 @@
 
 | **🌙 Dark Mode**                                | **☀️ Light Mode**                                 |
 | ----------------------------------------------- | ------------------------------------------------- |
-| `![Dark Mode](Insert_Dark_Mode_Image_URL_Here)` | `![Light Mode](Insert_Light_Mode_Image_URL_Here)` |
+| ![Dark Mode](Screenshots-dark.png) | ![Light Mode](Screenshots-light.png) |
 
 
 ## ✨ Features
