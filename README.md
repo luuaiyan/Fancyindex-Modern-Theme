@@ -48,6 +48,7 @@ This theme is perfectly suited for acting as the frontend face of your Nginx Aut
 
 Clone or download the project files into a /theme/ folder at the root of your website:
 
+
 your-website-root/
 │
 ├── theme/               # Core theme folder
@@ -59,6 +60,7 @@ your-website-root/
 │   └── footer.html      # Footer injection file
 │
 └── Other website files...
+
 
 2. Nginx Configuration Example (For FancyIndex)
 Add the following configuration to your Nginx server or location block to instruct Nginx to load the theme:
