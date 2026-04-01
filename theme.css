@@ -1,0 +1,307 @@
+/*!
+ * Deep Blue Cyber Theme (Day & Night Edition)
+ * Fixed: Added Light Theme Variables & Toggle Support
+ * Source: https://github.com/luuaiyan/Fancyindex-Modern-Theme
+ */
+
+:root {
+    --bg-color-1: #010409;
+    --bg-color-2: #0d1117;
+    --bg-color-3: #0f172a;
+    --text-color: #8b949e;
+    --heading-color: #f0f6fc;
+    --primary-color: #38bdf8; 
+    --primary-hover: #7dd3fc;
+    
+    --card-bg-solid: #090d14; 
+    --shadow-color: rgba(0, 0, 0, 0.9);
+    --static-glow: 0 0 25px rgba(56, 189, 248, 0.1); 
+    
+    --text-glow-primary: 0 0 10px rgba(56, 189, 248, 0.4), 0 0 20px rgba(56, 189, 248, 0.2);
+    --text-glow-hover: 0 0 15px rgba(56, 189, 248, 0.8), 0 0 30px rgba(56, 189, 248, 0.5);
+    
+    --header-bg: rgba(9, 13, 20, 0.6);
+    --header-border: rgba(56, 189, 248, 0.15);
+    --lightbox-bg: rgba(9, 13, 20, 0.85);
+    
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+    --bg-color-1: #f8fafc;
+    --bg-color-2: #f1f5f9;
+    --bg-color-3: #e2e8f0;
+    --text-color: #64748b;
+    --heading-color: #0f172a;
+    --primary-color: #0284c7;
+    --primary-hover: #0369a1;
+    
+    --card-bg-solid: #ffffff;
+    --shadow-color: rgba(148, 163, 184, 0.25);
+    --static-glow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    
+    --text-glow-primary: none;
+    --text-glow-hover: none;
+    
+    --header-bg: rgba(255, 255, 255, 0.7);
+    --header-border: rgba(0, 0, 0, 0.08);
+    --lightbox-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================
+   全局基础设定
+   ========================================= */
+html {
+    position: relative;
+    min-height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3));
+    background-size: 200% 200%;
+    animation: gradientMove 20s ease infinite;
+    color: var(--text-color);
+    padding-bottom: 70px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    transition: color 0.5s ease;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   顶部导航栏与面包屑
+   ========================================= */
+.header {
+    background: var(--header-bg);
+    backdrop-filter: blur(24px); 
+    -webkit-backdrop-filter: blur(24px);
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: 0 4px 30px var(--shadow-color); 
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background 0.5s ease, border-color 0.5s ease;
+}
+
+.header a:hover {
+    color: var(--primary-hover);
+    text-shadow: var(--text-glow-hover);
+    text-decoration: none;
+}
+
+.header .navbar-brand {
+    padding: 0 24px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.02em;
+    text-shadow: var(--text-glow-primary); 
+    cursor: pointer;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 30px 24px 16px;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.breadcrumb .breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    text-shadow: var(--text-glow-primary); 
+}
+
+.breadcrumb .breadcrumb-item a:hover {
+    color: var(--primary-hover);
+    text-shadow: var(--text-glow-hover); 
+}
+
+/* =========================================
+   文件列表核心卡片区
+   ========================================= */
+#list {
+    background-color: var(--card-bg-solid);
+    border-radius: 16px;
+    box-shadow: 0 16px 40px 0 var(--shadow-color), var(--static-glow);
+    margin: 15px 24px 40px;
+    width: calc(100% - 48px);
+    border-collapse: collapse;
+    position: relative;
+    z-index: 1; 
+    table-layout: auto; 
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+#list th, 
+#list td {
+    display: table-cell !important;
+    background: transparent;
+    color: var(--heading-color);
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+    vertical-align: middle;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+#list th {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 20px 24px;
+    background: rgba(128, 128, 128, 0.03); 
+    text-align: left;
+    white-space: nowrap !important; 
+}
+
+#list th a {
+    display: inline-block !important; 
+    vertical-align: middle;
+}
+
+#list colgroup { display: none; }
+#list .filename { word-break: break-all; white-space: normal; }
+#list tbody tr:last-child td { border-bottom: none; }
+
+#list a {
+    color: var(--heading-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    display: block;
+    text-shadow: var(--text-glow-primary);
+}
+
+#list a:focus,
+#list a:hover {
+    color: var(--primary-color);
+    text-shadow: var(--text-glow-hover); 
+}
+
+/* =========================================
+   行级交互动效 (Hover)
+   ========================================= */
+#list tbody tr {
+    transition: var(--transition);
+    position: relative;
+}
+
+/* 这里使用更通用的 Hover 颜色，兼容日夜 */
+#list tbody tr:hover {
+    background: rgba(14, 165, 233, 0.08); 
+    transform: translateX(8px);
+}
+
+#list tbody tr:hover td:first-child {
+    box-shadow: inset 4px 0 0 0 var(--primary-color) !important;
+}
+
+/* =========================================
+   底部信息栏
+   ========================================= */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 24px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    text-shadow: var(--text-glow-primary);
+}
+
+.footer a:focus,
+.footer a:hover {
+    color: var(--primary-hover);
+    text-shadow: var(--text-glow-hover);
+}
+
+/* =========================================
+   GLightbox 底部描述条定制
+   ========================================= */
+.glightbox-clean .gslide-description {
+    background: var(--lightbox-bg) !important;
+    backdrop-filter: blur(20px) !important; 
+    -webkit-backdrop-filter: blur(20px) !important;
+    max-width: 100% !important; 
+    width: 100% !important; 
+    border-top: 1px solid var(--header-border) !important;
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.05) !important;
+
+
+    bottom: 0 !important;
+    left: 0 !important;
+    margin: 0 !important; 
+    transform: none !important; 
+    padding: 20px 0 !important; 
+    z-index: 10;
+    transition: background 0.5s ease;
+}
+
+.glightbox-clean .gdesc-inner {
+    max-width: 800px !important; 
+    margin: 0 auto !important; 
+    text-align: center !important; 
+    padding: 0 30px !important; 
+    background: transparent !important; 
+    box-shadow: none !important; 
+    border: none !important; 
+}
+
+.glightbox-clean .gslide-title {
+    color: var(--primary-color) !important; 
+    text-shadow: var(--text-glow-primary) !important; 
+    font-size: 1.2rem !important; 
+    font-weight: 700 !important; 
+    margin-bottom: 0 !important;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--primary-color) !important;
+    opacity: 0.6 !important;
+    text-shadow: var(--text-glow-primary) !important;
+    font-weight: 300 !important;
+}
+
+/* =========================================
+   移动端完美适配
+   ========================================= */
+@media (max-width: 768px) {
+    #list th, 
+    #list td {
+        padding: 14px 10px !important;
+        font-size: 13px !important;
+    }
+    #list th:first-child,
+    #list td:first-child {
+        padding-left: 14px !important;
+    }
+    #list th:nth-child(3),
+    #list td:nth-child(3) {
+        display: none !important;
+    }
+}
