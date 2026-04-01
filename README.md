@@ -1,4 +1,4 @@
-# 🌌 CyberIndex---Deep-Blue-Cyber-Theme
+# 🌌 CyberIndex - Fancyindex Modern Theme
 > A geeky, modern, zero-jQuery, pure Vanilla JS interactive theme built for Web File Browsers (Based Nginx FancyIndex).
 
 ## 📸 Screenshots
