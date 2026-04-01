@@ -46,21 +46,20 @@ This theme is perfectly suited for acting as the frontend face of your Nginx Aut
 
 1. Directory Structure
 
-Clone or download the project files into a /theme/ folder at the root of your website:
+**Clone** or **download** the project files into a `/theme/` folder at the root of your website:
 
-
+```
 your-website-root/
 │
 ├── theme/               # Core theme folder
 │   ├── css/
-│   │   └── theme.css    # Core stylesheet (Day/Night variables & glow effects)
 │   ├── js/
-│   │   └── app.js       # Core interaction logic (Sorting, Breadcrumbs, Theme Toggle)
 │   ├── header.html      # Header injection file
-│   └── footer.html      # Footer injection file
+│   ├── footer.html      # Footer injection file
+│   └── theme.css        # Core stylesheet
 │
 └── Other website files...
-
+```
 
 2. Nginx Configuration Example (For FancyIndex)
 Add the following configuration to your Nginx server or location block to instruct Nginx to load the theme:
